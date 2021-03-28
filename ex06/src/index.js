@@ -12,4 +12,4 @@ function removeFirstTwo(list) {
 }
 
 console.log(removeFirstTwo(array1));
-console.log = removeFirstTwo;
+module.exports = removeFirstTwo;

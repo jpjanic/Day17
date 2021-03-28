@@ -15,9 +15,10 @@ var users = [
 // getUsers function - list of users starts here
 function getUsers() {
 	var output = "";
-	for (var i = 0; i < users.length; i++) {
+	for (let i = 0; i < users.length; i++) {
 		output += `${users[i].id} - ${users[i].firstName} ${users[i].lastName} is ${users[i].age}, ${users[i].gender}\n`;
 	}
+	console.log(output);
 	return output;
 }
 // getUsers function - list of users ends here
@@ -27,20 +28,19 @@ function getUsers() {
 function findUserById(id) {
 	try {
     // add appropriate code here
-		var user = _.find(users, (obj) => {
-			if (obj.id === id) {
-				return true;
-			}
-		});
-		var iFindUser = `${user.id} - ${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
-		return iFindUser;
-	} catch (error) {
-		return error; // Change this line
-	}
+	var user = _.find(users, { id: id });
+    var iFindUser = `${user.id} - ${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`;
+
+    console.log(iFindUser);
+    return iFindUser;
+  } catch (error) {
+    console.log("Cannot read property 'id'"); // Change this line
+    return "Cannot read property 'id'"; // Change this line
+  }
 }
 // findUserById(id) function ends here
 // Only change code above this line
 getUsers();
-findUserById(); // Change this line
+findUserById(2); // Change this line
 
 module.exports = findUserById;
